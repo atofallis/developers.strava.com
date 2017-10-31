@@ -29,9 +29,9 @@ We rely on [Docker](https://www.docker.com/) to build and run the site. Download
 
 The OpenAPI specification maintained in this repository, along with the various models it refers to, are not checked-in in their final form. In some cases, such as in production, we want to publish a specification where all files use absolute `$ref` values. In other cases, such as when you want to work on the spec locally, files may use relative references.
 
-If you seek to make local changes to the the API specification you will first need to generate it all. Templates are defined in [Mustache](https://mustache.github.io/), which you may need to install first. On macOS, you may use Homebrew:
+If you seek to make local changes to the the API specification you will first need to generate it all. Templates are defined in [Mustache](https://mustache.github.io/), which you may need to install first. On macOS, you may use [npm](https://www.npmjs.com/):
 
-    $ brew install mustache
+    $ npm install mustache --save
 
 Generating the specification and models then boils down to invoking the `generate_swagger_spec.sh` script:
 
@@ -41,7 +41,7 @@ Generating the specification and models then boils down to invoking the `generat
 
 You will need to have a Java runtime installed on your machine to run Swagger. To generate client code, you first need to install Swagger. On macOS, you may use Homebrew:
 
-    $ brew install swagger-codegen maven mustache
+    $ brew install swagger-codegen maven
 
 To generate code in a given language, run `swagger-codegen generate` and pass the following
 parameters:
@@ -67,7 +67,7 @@ After that, you need to run the `io.swagger.codegen.Codegen` class and make sure
 
     $ java -cp codegen/target/static-html-codegen-1.0.0.jar:$(brew --prefix swagger-codegen)/libexec/swagger-codegen-cli.jar io.swagger.codegen.Codegen -i static/swagger/swagger.json -c config/strava-html.json -l strava-html -o content/docs
 
-This will generate the documentation in the location expected by the site.
+This will generate the documentation in the location expected by the site. If the documentation compiles successfully for master but not for your local branch, make sure that you're escaping all [JSON-restricted characters](http://www.json.org/).
 
 ## Content & Organization
 
