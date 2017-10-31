@@ -29,7 +29,11 @@ We rely on [Docker](https://www.docker.com/) to build and run the site. Download
 
 The OpenAPI specification maintained in this repository, along with the various models it refers to, are not checked-in in their final form. In some cases, such as in production, we want to publish a specification where all files use absolute `$ref` values. In other cases, such as when you want to work on the spec locally, files may use relative references.
 
-If you seek to make local changes to the the API specification you will first need to generate it all. Templates are defined in [Mustache](https://mustache.github.io/), which you may need to install first. On macOS, you may use [npm](https://www.npmjs.com/):
+If you seek to make local changes to the the API specification you will first need to generate it all. Templates are defined in [Mustache](https://mustache.github.io/), which you may need to install first. On macOS, you may install mustache as a gem or by using [npm](https://www.npmjs.com/). As a gem:
+
+    $ gem install mustache
+    
+Alternatively, with npm:
 
     $ npm install mustache --save
 
