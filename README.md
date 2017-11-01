@@ -25,6 +25,14 @@ We rely on [Docker](https://www.docker.com/) to build and run the site. Download
 
 ## Generation of code and documentation
 
+### Local development
+
+You can run this bash script to generate the local configuration, client code, and documentation:
+
+    $ bash scripts/deploy_local_changes_p1313.sh
+    
+You can then point your browser to [localhost:1313](localhost:1313) to see your current branch on a local server. If the deploy script doesn't work for you, continue to the next sections; they describe in more detail each one of the script's processes. 
+
 ### [Optional] Generating the local configuration
 
 The OpenAPI specification maintained in this repository, along with the various models it refers to, are not checked-in in their final form. In some cases, such as in production, we want to publish a specification where all files use absolute `$ref` values. In other cases, such as when you want to work on the spec locally, files may use relative references.
